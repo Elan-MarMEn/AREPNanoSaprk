@@ -4,6 +4,9 @@ This project focuses on the implementation and use of a framework implement by t
 
 ## Continuous Integration
 
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/Elan-MarMEn/AREPNanoSaprk)
+
+
 ## Getting Started
 
 Open your comand console or cmd and write or copy the comand below.
