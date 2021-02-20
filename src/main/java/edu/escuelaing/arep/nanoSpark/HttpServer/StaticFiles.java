@@ -30,28 +30,27 @@ public class StaticFiles {
      * @throws IOException
      */
     public void getWebFile(Socket socket, String resource,String type) throws FileNotFoundException, IOException{
-            File index = new File(currentDir+"/"+resource);
-            PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
-            BufferedReader reader = new BufferedReader(new FileReader(index));// grab a file and put it into the buffer
+        File index = new File(currentDir+"/"+resource);
+        PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
+        BufferedReader reader = new BufferedReader(new FileReader(index));
+        String s = "HTTP/1.1 200 OK\r\n"
+                + "Content-Type: text/"+type+"\r\n";
 
-            //HTTP headers
-            printWriter.println("HTTP/1.1 200 OK");
-            printWriter.println("Content-Type: text/"+type);
-            if (!resource.contains(".js")){
-                printWriter.println("Content-Length: " + index.length());
-            }
-            printWriter.println("\r\n");
+        if (!resource.contains(".js")){
+            s+= "Content-Length: " + index.length() +"\r\n";
+        }
+        s +="\r\n";
 
-            String line = reader.readLine();// String to go line by line from file
+        String line = reader.readLine();
 
-            while (line != null)// repeat till the file is read
-            {
-                printWriter.println(line);// print current line
-                System.out.println(line);
-                line = reader.readLine();// read next line
-            }
-            reader.close();// close the reader
-            printWriter.close();
+        while (line != null){
+            s += line+"\r\n";
+            line = reader.readLine();
+        }
+        printWriter.println(s);
+        reader.close();
+        printWriter.close();
+
     }
 
     /**

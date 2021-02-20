@@ -1,5 +1,4 @@
 app = (function () {
-
     function getAlgo(){
         var promise = $.get({
             url: "/Apps/customers",
@@ -11,7 +10,6 @@ app = (function () {
             console.log(22);
         });
     }
-
     function showCustomers(data){
         for (let i = 0; i < data.split("%").length; i++) {
             data.split("%")[i].split("#");
@@ -19,9 +17,6 @@ app = (function () {
         }
 
     }
-
-    
-
     function insertData(){
         var name = $("#Name").val()
         var num = $("#Age").val()
@@ -36,7 +31,6 @@ app = (function () {
             console.log(22);
         });
     }
-
     return{
         getAlgo:getAlgo,
         insertData:insertData
