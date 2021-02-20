@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NanoSpark</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <Label for="Name">Name</Label>
+    <input id="Name" type="text" placeholder="Jose">
+    <Label for="Age ">Age</Label>
+    <input id="Age" type="int" placeholder="33">
+    <br>
+    <br>
+    <button onclick="app.insertData(),location.reload();"> Save</button>
+    <button onclick="app.getAlgo()"> ShowCustomers</button>
+    <nav>
+        <ul id="customers">
+        </ul>
+    </nav>
+    <button onclick="location.reload();">Clear</button>
+</body>
+</html>
